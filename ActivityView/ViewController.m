@@ -13,6 +13,18 @@
 @end
 
 @implementation ViewController
+- (IBAction)showActivityVC:(id)sender {
+    UIImage *image = [UIImage imageNamed:@"image.png"];
+    NSArray *items = @[@"액티비티 뷰 컨트롤러 테스팅!", image];
+    
+    UIActivityViewController *vc = [[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
+    
+    vc.completionHandler = ^(NSString *activityType, BOOL completed){
+        NSLog(@"%@의 동작을 마쳤습니다.", activityType);
+    };
+    
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 - (void)viewDidLoad
 {
